@@ -1,0 +1,23 @@
+from gpio import *
+from time import *
+
+def main():
+	while True:
+		motion_sensor = digitalRead(0)
+		if motion_sensor == HIGH:
+			print("Motion detected!")
+			print("lights on")
+			print("Open garage")
+			customWrite (1,1)
+			customWrite (2,1)
+			delay(100)
+		else:
+			print("Motion not detected!")
+			print("lights off")
+			print("Closed garage")
+			customWrite (1,0)
+			customWrite (2,0)
+			delay(100)
+			
+if __name__ == "__main__":
+	main()
